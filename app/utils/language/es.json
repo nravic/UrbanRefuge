@@ -1,0 +1,22 @@
+{
+    "homeScreen": {
+        "view_map": "Ver Recursos Disponibles",
+        "lang_change": "Cambar Idioma"
+    },
+    "map": {
+        "health": "Salud",
+        "food": "Comida",
+        "immigration": "Inmigracion",
+        "housing": "Alojamiento",
+        "loading": "Mapa se Está Cargando"
+    },
+    "details": {
+        "website": "Sitio Web",
+        "details": "Detalles",
+        "name": "Nombre",
+        "phys_refer": "Se Requiere Referencia Medica",
+        "ssn_req": "SSN Requiere",
+        "open_map": "Abrir en la Aplicacion Mapas",
+        "phone_num": "Número De Teléfono"
+    }
+}

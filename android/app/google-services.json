@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "559282199967",
+    "firebase_url": "https://urban-refuge-c6931.firebaseio.com",
+    "project_id": "urban-refuge-c6931",
+    "storage_bucket": "urban-refuge-c6931.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559282199967:android:986df3df03cce550",
+        "android_client_info": {
+          "package_name": "com.urbanrefuge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559282199967-ntt0lr4hcs1amtl9sl44bveaf23q9sqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-W_kgBBAp_KS2fgpqmoRIm6wNn6RyyUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "559282199967-ntt0lr4hcs1amtl9sl44bveaf23q9sqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

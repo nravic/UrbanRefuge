@@ -1,0 +1,23 @@
+{
+    "homeScreen": {
+        "view_map": "View Available Resources",
+        "lang_change": "Change Language"
+    },
+    "map": {
+        "health": "Health",
+        "food": "Food",
+        "immigration": "Immigration",
+        "housing": "Housing",
+        "loading": "Map is Loading"
+    },
+
+    "details": {
+        "website": "Website",
+        "details": "Details",
+        "name": "Name",
+        "phys_refer": "Physician Referral Required",
+        "phone_num": "Phone Number",
+        "ssn_req": "SSN Required",
+        "open_map": "Open in Maps Application"
+    }
+}
