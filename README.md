@@ -13,3 +13,10 @@ on the database, `server` isn't used.
 To build the app for android or ios, run `react-native build android` or
 `react-native build ios`. For android development, you'll need to have
 AndroidStudio installed and on your $PATH, along with the Java SDK. 
+
+## How to Contribute
+Run the app, and if you see any glaring issues let me know or make a pull
+request! I'm not perfect, and my code certainly isn't. 
+
+## License
+Urban Refuge is MIT Licensed. 
