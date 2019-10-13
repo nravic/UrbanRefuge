@@ -10,8 +10,8 @@ developer account and add the requisite information to your $PATH.
 data to your firestore database. Once up, unless performing routine maintenance
 on the database, `server` isn't used. 
 
-To build the app for android or ios, run `react-native build android` or
-`react-native build ios`. For android development, you'll need to have
+To build the app for android or ios, run `react-native run-android` or
+`react-native run-ios`. For android development, you'll need to have
 AndroidStudio installed and on your $PATH, along with the Java SDK. 
 
 ## How to Contribute
