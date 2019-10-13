@@ -44,65 +44,78 @@ class MarkerDetails extends React.Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <ImageBackground
-          style={styles.background}
-          source={require('../resources/img/sj_background.png')}>
-          <View
-            style={{ flex: 8, alignItems: 'center', justifyContent: 'center' }}>
-            <Text styles={styles.detailsTextStyle}>
-              {i18n.t('details.details')}
+        <View
+          style={{ flex: 8, alignItems: 'center', justifyContent: 'center' }}>
+          <Text styles={styles.detailsTextStyle}>
+            {i18n.t('details.details')}
+          </Text>
+          <Text>
+            <Text styles={styles.categoryTextStyle}>
+              {i18n.t('details.name')}
             </Text>
-
-            <Text styles={{ fontWeight: 'bold' }}>
-              {i18n.t('details.name')}: {JSON.parse(JSON.stringify(name))}
+            : {JSON.parse(JSON.stringify(name))}
+          </Text>
+          <Text>
+            <Text styles={styles.categoryTextStyle}>
+              {i18n.t('details.website')}
             </Text>
+            : {JSON.parse(JSON.stringify(website))}
+          </Text>
 
+          {physician_referral == '' ? (
             <Text>
-              {i18n.t('details.website')}: {JSON.parse(JSON.stringify(website))}
+              {' '}
+              <Text styles={styles.categoryTextStyle}>
+                {i18n.t('details.phys_refer')}
+              </Text>
+              :{JSON.parse(JSON.stringify(physician_referral))}
             </Text>
+          ) : (
+            <Text>
+              <Text styles={styles.categoryTextStyle}>
+                {i18n.t('details.phys_refer')}
+              </Text>
+              : {stringNotAvailable}
+            </Text>
+          )}
 
-            {physician_referral == '' ? (
-              <Text>
-                {i18n.t('details.phys_refer')}:
-                {JSON.parse(JSON.stringify(physician_referral))}
+          {ssn_required == '' ? (
+            <Text>
+              <Text styles={styles.categoryTextStyle}>
+                {i18n.t('details.ssn_req')}
               </Text>
-            ) : (
-              <Text>
-                {i18n.t('details.phys_refer')}: {stringNotAvailable}
-              </Text>
-            )}
+              : {JSON.parse(JSON.stringify(ssn_required))}
+            </Text>
+          ) : (
+            <Text>
+              {i18n.t('details.ssn_req')}: {stringNotAvailable}
+            </Text>
+          )}
 
-            {ssn_required == '' ? (
-              <Text>
-                {i18n.t('details.ssn_req')}:{' '}
-                {JSON.parse(JSON.stringify(ssn_required))}
+          {phone_number == '' ? (
+            <Text>
+              <Text styles={styles.categoryTextStyle}>
+                {i18n.t('details.phone_num')}
               </Text>
-            ) : (
-              <Text>
-                {i18n.t('details.ssn_req')}: {stringNotAvailable}
+              :{JSON.parse(JSON.stringify(phone_num))}
+            </Text>
+          ) : (
+            <Text>
+              <Text styles={styles.categoryTextStyle}>
+                {i18n.t('details.phone_num')}
               </Text>
-            )}
+              : {stringNotAvailable}
+            </Text>
+          )}
 
-            {phone_number == '' ? (
-              <Text>
-                {i18n.t('details.phone_num')}:
-                {JSON.parse(JSON.stringify(phone_num))}
-              </Text>
-            ) : (
-              <Text>
-                {i18n.t('details.phone_num')}: {stringNotAvailable}
-              </Text>
-            )}
-
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              onPress={() => Linking.openURL(navigationURL)}>
-              <Text style={styles.buttonTextStyle}>
-                {i18n.t('details.open_map')}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </ImageBackground>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => Linking.openURL(navigationURL)}>
+            <Text style={styles.buttonTextStyle}>
+              {i18n.t('details.open_map')}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -129,8 +142,10 @@ const styles = StyleSheet.create({
   },
   categoryTextStyle: {
     fontWeight: 'bold',
+    fontFamily: 'roboto',
   },
   detailsTextStyle: {
+    fontFamily: 'roboto',
     fontSize: 50,
     fontWeight: '100',
   },

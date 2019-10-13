@@ -22,6 +22,8 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 let id = 0;
 
+const locations = { san_jose: 'san_jose' };
+
 class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ class Map extends React.Component {
     const locale = navigation.getParam('locale');
     i18n.locale = locale;
 
-    this.ref = firebase.firestore().collection('san_jose');
+    this.ref = firebase.firestore().collection(locations.san_jose);
 
     this.state = {
       region: null,
@@ -40,14 +42,13 @@ class Map extends React.Component {
       error: null,
       locale: i18n.locale,
       mapLoaded: false,
-      filterQuery: null,
     };
   }
 
   async componentDidMount() {
     console.log(this.state);
     this.getPosition();
-    this.getFirestoreData();
+    this.getFirestoreData(null);
   }
 
   async getPermission() {
@@ -85,13 +86,14 @@ class Map extends React.Component {
     console.log('got position');
   }
 
-  async getFirestoreData() {
+  async getFirestoreData(query) {
     // conditions for filter
+    this.setState({ markers: [] });
 
-    if (this.state.filterQuery == null) {
+    if (query == null) {
       await firebase
         .firestore()
-        .collection('san_jose')
+        .collection(locations.san_jose)
         .get()
         .then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
@@ -102,8 +104,8 @@ class Map extends React.Component {
     } else {
       await firebase
         .firestore()
-        .collection('san_jose')
-        .where('Category', '==', this.state.filterQuery)
+        .collection(locations.san_jose)
+        .where('Category', '==', query)
         .get()
         .then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
@@ -115,9 +117,8 @@ class Map extends React.Component {
   }
 
   async filterData(query) {
-    this.setState({ markers: [], filterQuery: query });
-    await this.getFirestoreData();
-    this.forceUpdate();
+    await this.getFirestoreData(query);
+    await this.forceUpdate();
   }
 
   render() {
@@ -162,19 +163,31 @@ class Map extends React.Component {
           </MapView>
           <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={() => this.filterData('Health')}>
-              <Text> {i18n.t('map.health')} </Text>
+              <Text styles={styles.buttonTextStyle}>
+                {' '}
+                {i18n.t('map.health')}{' '}
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.filterData('Food')}>
-              <Text> {i18n.t('map.food')} </Text>
+              <Text styles={styles.buttonTextStyle}>
+                {' '}
+                {i18n.t('map.food')}{' '}
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.filterData('Immigration')}>
-              <Text> {i18n.t('map.immigration')} </Text>
+              <Text styles={styles.buttonTextStyle}>
+                {' '}
+                {i18n.t('map.immigration')}{' '}
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.filterData('Housing')}>
-              <Text> {i18n.t('map.housing')} </Text>
+              <Text styles={styles.buttonTextStyle}>
+                {' '}
+                {i18n.t('map.housing')}{' '}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -182,7 +195,7 @@ class Map extends React.Component {
     } else {
       return (
         <View style={styles.TextContainer}>
-          <Text> {i18n.t('map.loading')}</Text>
+          <Text> {i18n.t('map.loading')} ...</Text>
         </View>
       );
     }
@@ -197,6 +210,7 @@ const styles = StyleSheet.create({
   TextContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   map: {
     flex: 10,
@@ -224,6 +238,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
     backgroundColor: 'transparent',
+  },
+  buttonTextStyle: {
+    fontWeight: 'bold',
+    fontFamily: 'roboto',
   },
 });
 
