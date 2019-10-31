@@ -1,6 +1,6 @@
 # Urban Refuge 
-Urban Refuge is built with React Native, and uses Google Firestore as the
-backend for aid data retreival.
+This app is designed for migrant and refugee populations who call large global cities home, and for the organizations that provide aid resources for them. The app will also be useful to homeless, impoverished, or otherwise underserved populations who also call these cities home. Urban Refuge is built with React Native, and uses Google Firestore as the
+backend for aid data retreival. 
 
 ## Installation 
 Pull the repository, and follow the instructions to create a Google Cloud
