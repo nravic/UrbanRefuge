@@ -8,8 +8,4 @@ i18n.locale = 'en';
 i18n.fallback = true;
 i18n.translations = { en, es };
 
-i18n.switchLanguage = () => {
-  I18n.locale = 'es';
-};
-
 export default i18n;

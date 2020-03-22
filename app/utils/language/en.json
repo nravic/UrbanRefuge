@@ -3,6 +3,11 @@
         "view_map": "View Available Resources",
         "lang_change": "Change Language"
     },
+    "languageList": {
+	"change_language": "Change Language",
+	"cancel": "Cancel",
+	"ok": "OK"
+    },
     "map": {
         "health": "Health",
         "food": "Food",
