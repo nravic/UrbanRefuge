@@ -4,7 +4,9 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 target 'UrbanRefuge' do
   # Pods for UrbanRefuge
   pod 'React', :path => '../node_modules/react-native/'
+  pod 'React-CoreModules', :path => '../node_modules/react-native/React/CoreModules'
   pod 'React-Core', :path => '../node_modules/react-native/React'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
   pod 'React-RCTActionSheet', :path => '../node_modules/react-native/Libraries/ActionSheetIOS'
   pod 'React-RCTAnimation', :path => '../node_modules/react-native/Libraries/NativeAnimation'
@@ -27,7 +29,6 @@ target 'UrbanRefuge' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
   target 'UrbanRefugeTests' do
     inherit! :search_paths

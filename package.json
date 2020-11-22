@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-      "start": "react-native start",
-      "react-devtools": "react-devtools",
+    "start": "react-native start --port 9988",
+    "react-devtools": "react-devtools",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -15,10 +15,10 @@
     "@react-navigation/native": "^5.0.9",
     "@react-navigation/stack": "^5.1.1",
     "i18n-js": "^3.3.0",
-    "react": "16.8.6",
+    "react": "16.13.1",
     "react-dom": "^16.13.0",
     "react-localize-redux": "^3.5.3",
-    "react-native": "0.60.5",
+    "react-native": "0.63.3",
     "react-native-firebase": "^5.5.6",
     "react-native-geolocation-service": "^3.1.0",
     "react-native-gesture-handler": "^1.6.0",
